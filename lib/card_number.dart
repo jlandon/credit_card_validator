@@ -72,7 +72,7 @@ const int DEFAULT_MAX_CARD_NUM_LENGTH = 19;
     // If it is then decide the potential validity of this card number
     // The card number will be potentially valid if:
     //    The number is luhn valid OR the card number isn't complete yet
-    if (ccNumLengths[type].contains(trimmedNumStr.length)) {
+    if (!ccNumLengths.containsKey(type) || ccNumLengths[type].contains(trimmedNumStr.length)) {
       isPotentiallyValid = isLuhnValid || trimmedNumStr.length < maxCardLength;
 
       if (isLuhnValid && isPotentiallyValid) {
